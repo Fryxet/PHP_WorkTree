@@ -2,19 +2,19 @@
 require_once "User.php";
 class UserService
 {
-    protected function build_sorter_un($key)
+    protected function build_sorter_un(string $key)
     {
         return function ($a, $b) use ($key) {
             return strnatcmp($a[$key], $b[$key]);
         };
     }
-    protected function build_sorter_un_down($key)
+    protected function build_sorter_un_down(string $key)
     {
         return function ($a, $b) use ($key) {
             return strnatcmp($b[$key], $a[$key]);
         };
     }
-    protected function build_sorter_dt($key)
+    protected function build_sorter_dt(string $key)
     {
         return function ($a, $b) use ($key) {
             if ($a[$key] == $b[$key]) {
@@ -23,7 +23,7 @@ class UserService
             return ($a[$key] < $b[$key]) ? -1 : 1;
         };
     }
-    protected function build_sorter_dt_down($key)
+    protected function build_sorter_dt_down(string $key)
     {
         return function ($a, $b) use ($key) {
             if ($a[$key] == $b[$key]) {
