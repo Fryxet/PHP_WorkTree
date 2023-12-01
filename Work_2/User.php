@@ -5,4 +5,3 @@ class User
     public $password;
     public DateTime $birthday;
 }
-?>
