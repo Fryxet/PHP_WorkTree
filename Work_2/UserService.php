@@ -2,19 +2,19 @@
 require_once "User.php";
 class UserService
 {
-    protected function build_sorter_un(string $key)
+    protected function build_sorter_un(string $key): Closure
     {
         return function ($a, $b) use ($key) {
             return strnatcmp($a[$key], $b[$key]);
         };
     }
-    protected function build_sorter_un_down(string $key)
+    protected function build_sorter_un_down(string $key): Closure
     {
         return function ($a, $b) use ($key) {
             return strnatcmp($b[$key], $a[$key]);
         };
     }
-    protected function build_sorter_dt(string $key)
+    protected function build_sorter_dt(string $key): Closure
     {
         return function ($a, $b) use ($key) {
             if ($a[$key] == $b[$key]) {
@@ -23,16 +23,17 @@ class UserService
             return ($a[$key] < $b[$key]) ? -1 : 1;
         };
     }
-    protected function build_sorter_dt_down(string $key)
+    protected function build_sorter_dt_down(string $key): Closure
     {
-        return function ($a, $b) use ($key) {
+        function ($a, $b) use ($key) {
             if ($a[$key] == $b[$key]) {
                 return 0;
+            } else {
+                return ($a[$key] > $b[$key]) ? -1 : 1;
             }
-            return ($a[$key] > $b[$key]) ? -1 : 1;
         };
     }
-    public function sortByUsername(array $users, bool $type)
+    public function sortByUsername(array $users, bool $type): array
     {
         if ($type == true) {
             usort($users, UserService::build_sorter_un('username'));
@@ -42,7 +43,7 @@ class UserService
             return $users;
         }
     }
-    public function sortByBirthday(array $users, bool $type)
+    public function sortByBirthday(array $users, bool $type): array
     {
         if ($type == true) {
             usort($users, UserService::build_sorter_dt('birthday'));
