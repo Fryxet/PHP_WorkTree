@@ -36,20 +36,20 @@ class UserService
     public function sortByUsername(array $users, bool $type): array
     {
         if ($type == true) {
-            usort($users, UserService::build_sorter_un('username'));
+            usort($users, Self::build_sorter_un('username'));
             return $users;
         } else {
-            usort($users, UserService::build_sorter_un_down("username"));
+            usort($users, Self::build_sorter_un_down("username"));
             return $users;
         }
     }
     public function sortByBirthday(array $users, bool $type): array
     {
         if ($type == true) {
-            usort($users, UserService::build_sorter_dt('birthday'));
+            usort($users, Self::build_sorter_dt('birthday'));
             return $users;
         } else {
-            usort($users, UserService::build_sorter_dt_down('birthday'));
+            usort($users, Self::build_sorter_dt_down('birthday'));
             return $users;
         }
     }
