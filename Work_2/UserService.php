@@ -1,5 +1,4 @@
 <?php
-require_once "User.php";
 class UserService
 {
     protected function build_sorter_un(string $key): Closure
