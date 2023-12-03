@@ -1,19 +1,21 @@
 <?php
+namespace Farfels\work2;
+
 class UserService
 {
-    protected function build_sorter_un(string $key): Closure
+    protected static function build_sorter_un(string $key): \Closure
     {
         return function ($a, $b) use ($key) {
             return strnatcmp($a[$key], $b[$key]);
         };
     }
-    protected function build_sorter_un_down(string $key): Closure
+    protected static function build_sorter_un_down(string $key): \Closure
     {
         return function ($a, $b) use ($key) {
             return strnatcmp($b[$key], $a[$key]);
         };
     }
-    protected function build_sorter_dt(string $key): Closure
+    protected static function build_sorter_dt(string $key): \Closure
     {
         return function ($a, $b) use ($key) {
             if ($a[$key] == $b[$key]) {
@@ -22,7 +24,7 @@ class UserService
             return ($a[$key] < $b[$key]) ? -1 : 1;
         };
     }
-    protected function build_sorter_dt_down(string $key): Closure
+    protected static function build_sorter_dt_down(string $key): \Closure
     {
         function ($a, $b) use ($key) {
             if ($a[$key] == $b[$key]) {
@@ -32,23 +34,23 @@ class UserService
             }
         };
     }
-    public function sortByUsername(array $users, bool $type): array
+    public static function sortByUsername(array $users, bool $type): array
     {
         if ($type == true) {
-            usort($users, Self::build_sorter_un('username'));
+            usort($users, self::build_sorter_un('username'));
             return $users;
         } else {
-            usort($users, Self::build_sorter_un_down("username"));
+            usort($users, self::build_sorter_un_down("username"));
             return $users;
         }
     }
-    public function sortByBirthday(array $users, bool $type): array
+    public static function sortByBirthday(array $users, bool $type): array
     {
         if ($type == true) {
-            usort($users, Self::build_sorter_dt('birthday'));
+            usort($users, self::build_sorter_dt('birthday'));
             return $users;
         } else {
-            usort($users, Self::build_sorter_dt_down('birthday'));
+            usort($users, self::build_sorter_dt_down('birthday'));
             return $users;
         }
     }
