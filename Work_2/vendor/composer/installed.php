@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
+        'name' => 'farfels/work_2',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'd6eca9805dfe5d3d926ec3d76f870b06395faf58',
+        'reference' => '4a8b25d2661bd0beaf494852e5bc02d3119fd129',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
+        'farfels/work_2' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'd6eca9805dfe5d3d926ec3d76f870b06395faf58',
+            'reference' => '4a8b25d2661bd0beaf494852e5bc02d3119fd129',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

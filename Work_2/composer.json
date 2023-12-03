@@ -1,4 +1,17 @@
 {
+    "name": "farfels/work_2",
+    "description": "Php work n2",
+    "autoload": {
+        "psr-4": {
+            "Farfels\\Work2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "farfels",
+            "email": "hento2002@mail.ru"
+        }
+    ],
     "require-dev": {
         "phpstan/phpstan": "^1.10",
         "squizlabs/php_codesniffer": "*"
